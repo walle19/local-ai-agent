@@ -1,0 +1,82 @@
+[
+  {
+    "timestamp": "2026-10-11T10:00:00Z",
+    "service": "payment",
+    "level": "INFO",
+    "status": 200,
+    "requestId": "req-100",
+    "message": "Payment processed successfully"
+  },
+  {
+    "timestamp": "2026-10-11T10:05:00Z",
+    "service": "payment",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-101",
+    "message": "Database connection timed out"
+  },
+  {
+    "timestamp": "2026-10-11T10:06:00Z",
+    "service": "payment",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-102",
+    "message": "Failed to create payment"
+  },
+  {
+    "timestamp": "2026-10-11T10:07:00Z",
+    "service": "user",
+    "level": "INFO",
+    "status": 200,
+    "requestId": "req-103",
+    "message": "User profile retrieved"
+  },
+  {
+    "timestamp": "2026-10-11T10:08:00Z",
+    "service": "payment",
+    "level": "WARN",
+    "status": 200,
+    "requestId": "req-104",
+    "message": "Database response time exceeded threshold"
+  },
+  {
+    "timestamp": "2026-10-11T10:09:00Z",
+    "service": "payment",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-105",
+    "message": "Database connection refused"
+  },
+  {
+    "timestamp": "2026-10-11T10:10:00Z",
+    "service": "inventory",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-106",
+    "message": "Inventory service unavailable"
+  },
+  {
+    "timestamp": "2026-10-11T10:11:00Z",
+    "service": "payment",
+    "level": "INFO",
+    "status": 200,
+    "requestId": "req-107",
+    "message": "Payment status retrieved"
+  },
+  {
+    "timestamp": "2026-10-11T10:12:00Z",
+    "service": "payment",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-108",
+    "message": "Database connection timed out"
+  },
+  {
+    "timestamp": "2026-10-11T10:13:00Z",
+    "service": "user",
+    "level": "ERROR",
+    "status": 500,
+    "requestId": "req-109",
+    "message": "User database query failed"
+  }
+]

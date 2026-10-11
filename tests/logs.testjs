@@ -1,0 +1,57 @@
+import test from "node:test";
+import assert from "node:assert/strict";
+
+import { searchLogs } from "../src/tools/logs.js";
+
+test("finds payment errors", async () => {
+  const result = await searchLogs({
+    service: "payment",
+    level: "ERROR"
+  });
+
+  assert.equal(result.totalMatches, 4);
+  assert.equal(result.returned.length, 4);
+
+  for (const log of result.returned) {
+    assert.equal(log.service, "payment");
+    assert.equal(log.level, "ERROR");
+  }
+});
+
+test("filters log messages by text", async () => {
+  const result = await searchLogs({
+    query: "timed out"
+  });
+
+  assert.equal(result.totalMatches, 2);
+});
+
+test("returns an empty result when nothing matches", async () => {
+  const result = await searchLogs({
+    service: "unknown-service"
+  });
+
+  assert.equal(result.totalMatches, 0);
+  assert.deepEqual(result.returned, []);
+});
+
+test("rejects unsupported filter fields", async () => {
+  await assert.rejects(
+    searchLogs({ shellCommand: "whoami" }),
+    /Unsupported filter/
+  );
+});
+
+test("rejects invalid severity", async () => {
+  await assert.rejects(
+    searchLogs({ level: "CRITICAL" }),
+    /Invalid log level/
+  );
+});
+
+test("rejects an excessive result limit", async () => {
+  await assert.rejects(
+    searchLogs({ limit: 1000 }),
+    /Limit must be an integer/
+  );
+});
